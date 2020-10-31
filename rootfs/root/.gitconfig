@@ -1,8 +1,12 @@
 [user]
 	name = hexuan1922
 	email = hexuan1922@163.com
+[credential]
+	helper = manager
 [oh-my-zsh]
 	hide-status = 1
 	hide-dirty = 1
 [core]
 	autocrlf = false
+	safecrlf = true
+	symlinks = true
