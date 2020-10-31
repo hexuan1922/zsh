@@ -14,20 +14,37 @@ RUN echo "root" | passwd --stdin root
 
 ADD rootfs/etc /etc
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-RUN mv /etc/yum.repos.d/centos7_base.repo.aliyun /etc/yum.repos.d/CentOS-Base.repo
+#RUN mv /etc/yum.repos.d/centos7_base.repo.aliyun /etc/yum.repos.d/CentOS-Base.repo
 #RUN mv /etc/yum.repos.d/centos7_base.repo.tencent /etc/yum.repos.d/CentOS-Base.repo
+#RUN mv /etc/yum.repos.d/CentOS7-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo
+#RUN mv /etc/yum.repos.d/CentOS-7-anon.repo.huawei /etc/yum.repos.d/CentOS-Base.repo
+RUN mv /etc/yum.repos.d/CentOS7-Base.repo.yunidc /etc/yum.repos.d/CentOS-Base.repo
 
 #RUN yum install -y wget
 #RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 #RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.cloud.tencent.com/repo/centos7_base.repo
+#RUN wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+#RUN wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.huaweicloud.com/repository/conf/CentOS-7-anon.repo
 
 RUN yum clean all && yum makecache
 RUN yum install -y openssl openssh* net-tools wget git jq lrzsz zsh libevent-devel ncurses-devel
 
 ADD rootfs/usr /usr
-RUN chmod a+x /usr/local/src/install.sh && sh -c "echo Y | /usr/local/src/install.sh"
-#RUN git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-#RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+#ADD https://download.docker.com/linux/static/stable/x86_64/docker-19.03.13.tgz /usr/local/sbin
+RUN set -eux; \
+    tar --extract \
+		--file /usr/local/src/docker-19.03.13.tgz \
+		--strip-components 1 \
+		--directory /usr/local/bin/ \
+	&& docker --version
+
+RUN set -eux; \
+    chmod a+x /usr/local/src/install.sh \
+    && sh -c "echo Y | /usr/local/src/install.sh" \
+    && tar --extract \
+		--file /usr/local/src/plugins.tar.gz \
+		--directory /root/.oh-my-zsh/custom/
 
 RUN rpm -ivh /usr/local/src/tmux-2.5-8.2.x86_64.rpm
 RUN chsh -s /usr/bin/tmux
@@ -36,6 +53,8 @@ ADD rootfs/root /root
 #RUN systemctl enable sshd.service && systemctl start sshd.service && systemctl status sshd.service
 
 EXPOSE 22 80 81 82 83 84 85 86 87 88 89
+
+ENV DOCKER_HOST unix:///tmp/docker.sock
 
 VOLUME [ "/sys/fs/cgroup" ]
 ENTRYPOINT ["/usr/sbin/init"]

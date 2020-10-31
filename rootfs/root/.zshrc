@@ -10,6 +10,7 @@ export ZSH="/root/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
+ZSH_DISABLE_COMPFIX="true"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,9 +104,12 @@ source $ZSH/oh-my-zsh.sh
 source /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /root/.oh-my-zsh/custom/plugins/incr/incr*.zsh
 
+
 GOROOT=/usr/local/go
 GOPATH=/root/code/go
 PATH=$GOROOT/bin:$PATH
 export GOROOT
 export GOPATH
 export PATH
+
+export DOCKER_HOST="unix:///tmp/docker.sock"
