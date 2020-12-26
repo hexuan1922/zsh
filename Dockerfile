@@ -39,7 +39,7 @@ RUN set -xe \
 	&& cd /tmp \
 	&& wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.13.tgz \
 	&& tar --extract \
-		--file /usr/local/src/docker-19.03.13.tgz \
+		--file /tmp/docker-19.03.13.tgz \
 		--strip-components 1 \
 		--directory /usr/local/bin/ \
 	&& docker --version \
