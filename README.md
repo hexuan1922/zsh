@@ -2,6 +2,13 @@
 docker build --rm -t local/he-c7-systemd .
 ```
 
+or
+```
+docker login --username=hi34256869@aliyun.com registry.cn-beijing.aliyuncs.com
+docker pull registry.cn-beijing.aliyuncs.com/hetest/centos7:last
+```
+
+
 on wsl test dind 
 ```
 docker run --name aa --privileged -d -p 22:22  -v /var/run/docker.sock:/tmp/docker.sock -v /mnt/g:/mnt/g  local/he-c7-systemd
