@@ -2,6 +2,13 @@
 docker build --rm -t local/he-c7-systemd .
 ```
 
+on wsl test dind 
+```
+docker run --name aa --privileged -d -p 22:22  -v /var/run/docker.sock:/tmp/docker.sock -v /mnt/g:/mnt/g  local/he-c7-systemd
+docker run --name aa --privileged -d -p 22:22  -v //var/run/docker.sock:/tmp/docker.sock -v /mnt/g:/mnt/g  local/he-c7-systemd
+docker run --name aa --privileged -d -p 22:22  -v tcp://127.0.0.1:2376:/tmp/docker.sock -v /mnt/g:/mnt/g  local/he-c7-systemd
+```
+
 on wsl support dind 
 ```
 docker run --name centos7 --privileged -d -p 22:22 -p 80:80 -p 81:81 -p 82:82 -p 83:83 -p 84:84 -v /var/run/docker.sock:/tmp/docker.sock -v /mnt/c:/mnt/c -v /mnt/d:/mnt/d -v /mnt/e:/mnt/e -v /mnt/f:/mnt/f -v /mnt/g:/mnt/g  local/he-c7-systemd
