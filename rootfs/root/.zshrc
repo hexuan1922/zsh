@@ -107,9 +107,12 @@ source /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highli
 
 GOROOT=/usr/local/go
 GOPATH=/root/code/go
-PATH=$GOROOT/bin:$PATH
+GOPROXY=https://mirrors.aliyun.com/goproxy/
+PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export GOROOT
 export GOPATH
+export GOPROXY
+export GO111MODULE=on
 export PATH
 
 export DOCKER_HOST="unix:///tmp/docker.sock"
