@@ -5,6 +5,7 @@ docker build --rm -t local/he-c7-systemd .
 or
 ```
 docker login --username=hi34256869@aliyun.com registry.cn-beijing.aliyuncs.com
+docker pull registry.cn-beijing.aliyuncs.com/hetest/he-c7-systemd:latest
 docker pull registry.cn-beijing.aliyuncs.com/hetest/centos7:last
 ```
 
