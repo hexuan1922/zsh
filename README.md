@@ -47,3 +47,6 @@ You're good to go! The plugin was cloned to ~/.tmux/plugins/ dir and sourced.
 ## Power Line font for secureCRT or putty
 1. move font/* to C:\Windows\Fonts  
 2. reboot you secureCRT and set font to “DejaVu for Powerline”
+
+## mobaxterm The mouse to scroll
+    https://mlog.club/article/4865556
