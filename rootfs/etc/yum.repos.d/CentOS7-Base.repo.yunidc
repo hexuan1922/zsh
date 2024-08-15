@@ -12,7 +12,7 @@
 [base]
 name=CentOS-$releasever - Base - yun-idc.com
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
-baseurl=http://mirrors.yun-idc.com/centos/$releasever/os/$basearch/
+baseurl=http://mirrors.yun-idc.com/centos-vault/7.9.2009/os/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
 
@@ -20,7 +20,7 @@ gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
 [updates]
 name=CentOS-$releasever - Updates - yun-idc.com
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
-baseurl=http://mirrors.yun-idc.com/centos/$releasever/updates/$basearch/
+baseurl=http://mirrors.yun-idc.com/centos-vault/7.9.2009/updates/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
 
@@ -28,14 +28,14 @@ gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
 [extras]
 name=CentOS-$releasever - Extras - yun-idc.com
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
-baseurl=http://mirrors.yun-idc.com/centos/$releasever/extras/$basearch/
+baseurl=http://mirrors.yun-idc.com/centos-vault/7.9.2009/extras/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
 
 #additional packages that extend functionality of existing packages
 [centosplus]
 name=CentOS-$releasever - Plus - yun-idc.com
-baseurl=http://mirrors.yun-idc.com/centos/$releasever/centosplus/$basearch/
+baseurl=http://mirrors.yun-idc.com/centos-vault/7.9.2009/centosplus/$basearch/
 gpgcheck=1
 enabled=0
 gpgkey=http://mirrors.yun-idc.com/centos/RPM-GPG-KEY-CentOS-7
