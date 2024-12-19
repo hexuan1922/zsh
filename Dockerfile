@@ -26,7 +26,7 @@ RUN echo "root" | passwd --stdin root
 #RUN wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.huaweicloud.com/repository/conf/CentOS-7-anon.repo
 ADD rootfs/etc /etc
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
-	&& mv /etc/yum.repos.d/CentOS7-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo \
+	&& mv /etc/yum.repos.d/CentOS7-Base.repo.163 /etc/yum.repos.d/CentOS-Base.repo \
 	&& yum clean all && yum makecache \
 	&& yum install -y openssl openssh* net-tools wget git jq lrzsz zsh libevent-devel ncurses-devel
 
